@@ -1,6 +1,6 @@
 const express = require('express');
 const User = require("./db/models/User");
-
+const port = 3001
 require("./db/connection/connection");
 
 const app = express();
@@ -34,7 +34,7 @@ app.post('/login', async (req, res) => {
         let senhaCorreta;
 
         if(!user){
-            return res.status(401).json({ message: "Email ou senha incorretos."})
+            return res.status(401).json({ message: "Email ou senha incorretos. Usuário não encontrado"})
         }
         if(password == user.password && (user)){
             senhaCorreta = true
@@ -74,6 +74,6 @@ app.delete('/users', async (req, res) => {
     }
 })
 
-app.listen(3000, () => {
-    console.log("Server is running at the port 3000");
+app.listen(port, () => {
+    console.log(`Server is running at the port ${port}`);
 });
