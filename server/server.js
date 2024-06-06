@@ -11,16 +11,43 @@ app.get('/', async (req, res) => {
     res.json("Olá mundo!");
 });
 
-app.post('/users', async (req, res) => {
-    const { username, password } = req.body;
+app.post('/signup', async (req, res) => {
+    const { username, email, password } = req.body;
     try {
-        const newUser = new User({ username, password });
-        const userSave = await newUser.save();
-        res.status(201).json(userSave);
-    } catch {
-        res.status(400).json({ message: "Não foi possível criar o usuário."})
+        const findEmail = await User.findOne({ email });
+        if(findEmail){
+            return res.status(403).json({ message: "Já existe alguém com esse email."})
+        }else{
+            const newUser = new User({ username, email, password });
+            const userSave = await newUser.save();
+            return res.status(201).json(userSave);
+        }
+    } catch (error) {
+        res.status(400).json(error)
     }
 });
+
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({ email });
+        let senhaCorreta;
+
+        if(!user){
+            return res.status(401).json({ message: "Email ou senha incorretos."})
+        }
+        if(password == user.password && (user)){
+            senhaCorreta = true
+            return res.status(200).json({ message: "Autenticado como " + user.username + "!"})
+        }else{
+            senhaCorreta = false;
+            return res.status(401).json({ message: "Email ou senha incorretos."})
+        }
+    } catch (error) {
+        return res.status(402).json(error);
+    }
+});
+
 app.get('/users', async (req, res) => {
     try {
         const findUsers = await User.find();
