@@ -1,7 +1,6 @@
 import './App.css';
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
-import { Home, WordManipulation } from './pages/pageControll/PageControll'
-import Header from './components/HeaderComponent';
+import { Home, Operations, WordManipulation } from './pages/pageControll/PageControll'
 
 function App() {
   return (
@@ -10,7 +9,8 @@ function App() {
         <Routes>
           <Route index element={<Home/>}/>
           <Route path='/home' element={<Home/>}/> 
-          <Route path='ferramentas/manipular-palavras' element={<WordManipulation/>}/> 
+          <Route path='/manipular-palavras' element={<WordManipulation/>}/>
+          <Route path='/operacoes' element={<Operations />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,0 +1,35 @@
+.contentContainer {
+    background-color: rgb(255, 255, 255);
+    width: 60%;
+    padding: 15px;
+    margin: auto;
+    margin-top: 3rem;
+    border-radius: 5px;
+}
+.numberInput {
+    height: 40px;
+    font-size: larger;
+    border: 1px solid #333;
+    border-radius: 6px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.operation {
+    border-radius: 8px;
+    border: none;
+    height: 30px;
+    background-color: rgb(0, 103, 238);
+    color: white;
+    font-size: 15px;
+}
+.operation:hover {
+    filter: brightness(0.9);
+}
+.operacoes {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-bottom: 1rem;
+}
