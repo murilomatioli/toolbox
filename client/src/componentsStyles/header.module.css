@@ -1,0 +1,32 @@
+.body {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    border-bottom: 1px solid #656464;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    max-height: fit-content;
+    min-height: 7rem;
+    position: relative;
+}
+.siteName {
+    position: absolute;
+    display: block;
+    bottom: 50%;
+    transform: translateY(+50%);
+    font-size: 40px;
+    left: 10%;    
+}
+.headerContainer {
+    background-color: rgba(49, 128, 246, 0.321);
+    width: 30%;
+    height: 7rem;
+    border-right: 1px solid #ccc;
+}
+.siteImg {
+    width: 8%;
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(+50%);
+}
+* {
+    margin: 0;
+}

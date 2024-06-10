@@ -1,6 +1,7 @@
 import './App.css';
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import { Home, WordManipulation } from './pages/pageControll/PageControll'
+import Header from './components/HeaderComponent';
 
 function App() {
   return (
